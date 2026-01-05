@@ -1,0 +1,53 @@
+# Alternativa con Picsum Photos (imágenes random pero siempre funcionan)
+# Usa esto si las de Imgur no funcionan:
+
+sample_products = [
+    models.Product(
+        id=str(uuid.uuid4()),
+        name="Wireless Headphones",
+        description="High-quality wireless headphones with noise cancellation",
+        price=99.99,
+        stock=50,
+        image_url="https://picsum.photos/seed/headphones/400/400"
+    ),
+    models.Product(
+        id=str(uuid.uuid4()),
+        name="Smart Watch",
+        description="Fitness tracker with heart rate monitor",
+        price=199.99,
+        stock=30,
+        image_url="https://picsum.photos/seed/watch/400/400"
+    ),
+    models.Product(
+        id=str(uuid.uuid4()),
+        name="Laptop Backpack",
+        description="Water resistant laptop backpack with USB charging port",
+        price=49.99,
+        stock=100,
+        image_url="https://picsum.photos/seed/backpack/400/400"
+    ),
+    models.Product(
+        id=str(uuid.uuid4()),
+        name="Running Shoes",
+        description="Comfortable running shoes with excellent cushioning",
+        price=89.99,
+        stock=75,
+        image_url="https://picsum.photos/seed/shoes/400/400"
+    ),
+    models.Product(
+        id=str(uuid.uuid4()),
+        name="Mechanical Keyboard",
+        description="RGB mechanical keyboard with blue switches",
+        price=129.99,
+        stock=40,
+        image_url="https://picsum.photos/seed/keyboard/400/400"
+    ),
+    models.Product(
+        id=str(uuid.uuid4()),
+        name="Wireless Mouse",
+        description="Ergonomic wireless mouse with precision tracking",
+        price=29.99,
+        stock=120,
+        image_url="https://picsum.photos/seed/mouse/400/400"
+    ),
+]
