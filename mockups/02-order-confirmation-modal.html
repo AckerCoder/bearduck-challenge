@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup: Order Confirmation Modal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f9fafb;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .instructions h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            color: #6b7280;
+        }
+
+        .instructions code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .create-order-btn {
+            padding: 15px 30px;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .create-order-btn:hover {
+            background: #059669;
+        }
+
+        /* 🎯 THE EXPECTED MODAL OVERLAY */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* 🎯 THE EXPECTED MODAL */
+        .modal {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+            transform: scale(0.9) translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.show .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: #d1fae5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .modal h2 {
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .modal p {
+            color: #6b7280;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .order-id {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #374151;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .modal-btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .modal-btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .modal-btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 4px;
+            max-width: 600px;
+        }
+
+        .note strong {
+            color: #92400e;
+        }
+
+        .comparison {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .comparison h3 {
+            margin-bottom: 15px;
+        }
+
+        .bad-example {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .good-example {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .example-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h1>Challenge 2: Order Confirmation Modal</h1>
+        <p><strong>Objective:</strong> Replace the browser <code>alert()</code> with a custom modal when an order is created.</p>
+
+        <p><strong>Requirements:</strong></p>
+        <ul>
+            <li>Modal should appear with a smooth fade-in animation</li>
+            <li>Show success icon (checkmark) at the top</li>
+            <li>Display order ID in a highlighted box</li>
+            <li>Include a "View Order" button and "Continue Shopping" button</li>
+            <li>Modal should have a semi-transparent overlay</li>
+            <li>Clicking outside the modal or "Continue Shopping" should close it</li>
+            <li>Modal should be responsive and centered</li>
+        </ul>
+
+        <p><strong>Try it:</strong> Click the button below to see the expected behavior</p>
+    </div>
+
+    <div class="demo-section">
+        <button class="create-order-btn" onclick="showOrderModal()">
+            Create Order
+        </button>
+    </div>
+
+    <div class="comparison">
+        <h3>Before vs After</h3>
+
+        <div class="bad-example">
+            <div class="example-label">❌ Current (Bad UX):</div>
+            <code>alert(`Order created successfully! Order ID: ${order.id}`)</code>
+            <p style="margin-top: 10px; font-size: 0.875rem; color: #991b1b;">
+                Browser alerts are jarring, can't be styled, and provide poor UX
+            </p>
+        </div>
+
+        <div class="good-example">
+            <div class="example-label">✅ Expected (Good UX):</div>
+            <p style="font-size: 0.875rem; color: #065f46;">
+                Custom modal with smooth animations, better information hierarchy, and action buttons
+            </p>
+        </div>
+    </div>
+
+    <!-- 🎯 THE MODAL -->
+    <div class="modal-overlay" id="orderModal" onclick="closeModalOnOverlay(event)">
+        <div class="modal">
+            <div class="modal-icon">✓</div>
+            <h2>Order Created Successfully!</h2>
+            <p>Your order has been placed and is being processed.</p>
+
+            <div class="order-id">
+                Order ID: <strong id="orderId">ORD-123456</strong>
+            </div>
+
+            <p style="font-size: 0.875rem;">
+                You will receive a confirmation email shortly.
+            </p>
+
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal()">
+                    Continue Shopping
+                </button>
+                <button class="modal-btn modal-btn-primary" onclick="viewOrder()">
+                    View Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>Implementation Hints:</strong>
+        <ul style="margin-top: 10px; margin-left: 20px;">
+            <li>Create a state variable for modal visibility</li>
+            <li>Use CSS transitions for smooth animations</li>
+            <li>The overlay should close the modal when clicked (but not the modal itself)</li>
+            <li>Consider using a portal in React for better positioning</li>
+        </ul>
+    </div>
+
+    <script>
+        function showOrderModal() {
+            // Generate a random order ID for demo
+            const orderId = 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('orderId').textContent = orderId;
+
+            // Show the modal
+            document.getElementById('orderModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('show');
+        }
+
+        function closeModalOnOverlay(event) {
+            // Only close if clicking the overlay, not the modal content
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+        function viewOrder() {
+            alert('Navigate to order details (not implemented in mockup)');
+            closeModal();
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

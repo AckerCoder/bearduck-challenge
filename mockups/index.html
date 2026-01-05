@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Challenges - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .challenge-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .challenge-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.875rem;
+        }
+
+        .challenge-card h2 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .challenge-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .challenge-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .challenge-features li {
+            padding: 8px 0;
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+
+        .challenge-features li::before {
+            content: '✓ ';
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .demo-button {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .demo-button:hover {
+            background: #5568d3;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-section h3 {
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            margin-left: 20px;
+            color: #4b5563;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .difficulty.easy {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .difficulty.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>E-commerce Development Challenges</h1>
+            <p>Complete guide with mockups, requirements, and implementation details for all 7 challenges</p>
+        </header>
+
+        <div class="challenges-grid">
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 01</span>
+                <h2>
+                    Add to Cart Animation
+                    <span class="difficulty easy">Easy</span>
+                </h2>
+                <p>
+                    Add a smooth, professional animation to the "Add to Cart" button
+                    that provides visual feedback when users add items to their cart.
+                </p>
+                <ul class="challenge-features">
+                    <li>Button scale animation</li>
+                    <li>Color transition effect</li>
+                    <li>Checkmark animation</li>
+                    <li>Auto-reset functionality</li>
+                </ul>
+                <a href="01-add-to-cart-animation.html" class="demo-button">
+                    View Interactive Demo →
+                </a>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 02</span>
+                <h2>
+                    Order Confirmation Modal
+                    <span class="difficulty medium">Medium</span>
+                </h2>
+                <p>
+                    Replace the browser alert with a custom modal that provides
+                    a better user experience when creating orders.
+                </p>
+                <ul class="challenge-features">
+                    <li>Custom modal component</li>
+                    <li>Smooth animations</li>
+                    <li>Order details display</li>
+                    <li>Action buttons</li>
+                    <li>Overlay click handling</li>
+                </ul>
+                <a href="02-order-confirmation-modal.html" class="demo-button">
+                    View Interactive Demo →
+                </a>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 02b</span>
+                <h2>
+                    Order Detail View
+                    <span class="difficulty medium">Medium</span>
+                </h2>
+                <p>
+                    Create a detailed order view page that shows complete order information
+                    including items, pricing breakdown, and order status.
+                </p>
+                <ul class="challenge-features">
+                    <li>Order information grid</li>
+                    <li>Item list with images</li>
+                    <li>Order summary breakdown</li>
+                    <li>Status badges</li>
+                    <li>Action buttons</li>
+                </ul>
+                <a href="02b-order-detail-view.html" class="demo-button">
+                    View Interactive Demo →
+                </a>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 03</span>
+                <h2>
+                    Authentication System
+                    <span class="difficulty" style="background: #fee2e2; color: #991b1b;">Hard</span>
+                </h2>
+                <p>
+                    Implement a complete full-stack authentication system with user
+                    registration, login, and order association.
+                </p>
+                <ul class="challenge-features">
+                    <li>User registration & login</li>
+                    <li>JWT or Session auth</li>
+                    <li>Database schema changes</li>
+                    <li>Protected API endpoints</li>
+                    <li>Order user association</li>
+                </ul>
+                <a href="03-authentication-system.html" class="demo-button">
+                    View Interactive Demo →
+                </a>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 04</span>
+                <h2>
+                    Pagination
+                    <span class="difficulty easy">Easy</span>
+                </h2>
+                <p>
+                    Add pagination support to product and order listing endpoints to improve
+                    performance and user experience with large datasets.
+                </p>
+                <ul class="challenge-features">
+                    <li>Page & limit query parameters</li>
+                    <li>Paginated API responses</li>
+                    <li>Pagination controls UI</li>
+                    <li>Page metadata (total, pages)</li>
+                    <li>Works with products & orders</li>
+                </ul>
+                <div class="demo-button" style="background: #6b7280; cursor: default;">
+                    Backend + Frontend Challenge
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 05</span>
+                <h2>
+                    Order Status Management
+                    <span class="difficulty easy">Easy</span>
+                </h2>
+                <p>
+                    Implement proper order status workflow with transitions from pending
+                    to processing to successful/failed/cancelled.
+                </p>
+                <ul class="challenge-features">
+                    <li>Status transition workflow</li>
+                    <li>PATCH endpoint to update status</li>
+                    <li>Validation of transitions</li>
+                    <li>Color-coded status badges</li>
+                    <li>Status update buttons (admin)</li>
+                </ul>
+                <div class="demo-button" style="background: #6b7280; cursor: default;">
+                    Full Stack Challenge
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 06</span>
+                <h2>
+                    Search & Filtering
+                    <span class="difficulty medium">Medium</span>
+                </h2>
+                <p>
+                    Add comprehensive search and filtering capabilities to the product
+                    listing with real-time updates.
+                </p>
+                <ul class="challenge-features">
+                    <li>Search by name/description</li>
+                    <li>Price range filters</li>
+                    <li>Sort by price/name/stock</li>
+                    <li>Debounced search (300ms)</li>
+                    <li>Combined filters + pagination</li>
+                </ul>
+                <div class="demo-button" style="background: #6b7280; cursor: default;">
+                    Full Stack Challenge
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-number">Challenge 07</span>
+                <h2>
+                    Shopping Cart Persistence
+                    <span class="difficulty medium">Medium</span>
+                </h2>
+                <p>
+                    Improve cart persistence with auto-expiry, cleanup jobs, and
+                    cross-device synchronization.
+                </p>
+                <ul class="challenge-features">
+                    <li>Database cart persistence</li>
+                    <li>Auto-expire after 30 days</li>
+                    <li>Cleanup job endpoint</li>
+                    <li>Last updated timestamp</li>
+                    <li>Cart merge on login (bonus)</li>
+                </ul>
+                <div class="demo-button" style="background: #6b7280; cursor: default;">
+                    Full Stack Challenge
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>How to Use This Guide</h3>
+            <p>
+                <strong>Challenges 01-03</strong> have interactive HTML mockups that demonstrate the expected behavior and design.
+                Open these files to see animations and interactions.
+            </p>
+            <p>
+                <strong>Challenges 04-07</strong> are implementation challenges focused on backend logic and functionality.
+                Requirements are detailed below.
+            </p>
+
+            <h3 style="margin-top: 30px;">Implementation Guidelines</h3>
+            <ul>
+                <li>For mockup challenges: study the interactions and implement them in React</li>
+                <li>Match the visual design as closely as possible</li>
+                <li>Don't copy-paste the code - implement it properly in your framework</li>
+                <li>Add proper accessibility features (keyboard support, ARIA labels)</li>
+                <li>Test thoroughly before submission</li>
+            </ul>
+        </div>
+
+        <!-- Challenge 04 Details -->
+        <div class="info-section" style="margin-top: 30px;">
+            <h3>Challenge 04: Pagination - Detailed Requirements</h3>
+
+            <h4 style="margin-top: 20px; color: #374151;">Backend Requirements</h4>
+            <p><strong>Modify GET /api/products endpoint:</strong></p>
+            <ul>
+                <li>Add query parameters: <code>page</code> (default: 1) and <code>limit</code> (default: 10)</li>
+                <li>Return paginated results with metadata</li>
+                <li>Response should include: <code>items</code>, <code>total</code>, <code>page</code>, <code>limit</code>, <code>pages</code></li>
+            </ul>
+
+            <p><strong>Modify GET /api/orders endpoint:</strong></p>
+            <ul>
+                <li>Add the same pagination parameters</li>
+                <li>Return paginated results with same metadata structure</li>
+            </ul>
+
+            <p><strong>Example Response:</strong></p>
+            <pre style="background: #f9fafb; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 0.875rem;">
+{
+  "items": [
+    {
+      "id": "product-1",
+      "name": "Wireless Headphones",
+      "price": 99.99,
+      ...
+    }
+  ],
+  "total": 156,
+  "page": 1,
+  "limit": 10,
+  "pages": 16
+}</pre>
+
+            <h4 style="margin-top: 20px; color: #374151;">Frontend Requirements</h4>
+            <ul>
+                <li>Add pagination controls (Previous, Next, page numbers)</li>
+                <li>Update API calls to include pagination parameters</li>
+                <li>Display "Showing X-Y of Z products"</li>
+                <li>"Items per page" selector (bonus)</li>
+            </ul>
+
+            <h4 style="margin-top: 20px; color: #374151;">Implementation Hints</h4>
+            <ul>
+                <li>Use SQLAlchemy's <code>.offset()</code> and <code>.limit()</code> for database queries</li>
+                <li>Calculate total pages: <code>math.ceil(total / limit)</code></li>
+                <li>Validate that page number doesn't exceed total pages</li>
+                <li>Return empty array if page is out of bounds (don't error)</li>
+            </ul>
+        </div>
+
+        <!-- Challenge 05 Details -->
+        <div class="info-section" style="margin-top: 30px;">
+            <h3>Challenge 05: Order Status Management - Detailed Requirements</h3>
+
+            <h4 style="margin-top: 20px; color: #374151;">Backend Requirements</h4>
+            <p><strong>Order Status Enum:</strong></p>
+            <ul>
+                <li>Define possible statuses: <code>pending</code>, <code>processing</code>, <code>successful</code>, <code>cancelled</code>, <code>failed</code></li>
+                <li>Validate status transitions (e.g., can't go from <code>successful</code> to <code>pending</code>)</li>
+            </ul>
+
+            <p><strong>Update Order Status Endpoint:</strong></p>
+            <ul>
+                <li>Create: <code>PATCH /api/orders/{order_id}/status</code></li>
+                <li>Body: <code>{"status": "processing"}</code></li>
+                <li>Validate status transition</li>
+                <li>Return updated order</li>
+            </ul>
+
+            <p><strong>Business Rules:</strong></p>
+            <ul>
+                <li>New orders start as <code>pending</code></li>
+                <li><code>pending</code> → <code>processing</code>, <code>cancelled</code></li>
+                <li><code>processing</code> → <code>successful</code>, <code>failed</code>, <code>cancelled</code></li>
+                <li><code>successful</code> → cannot change (terminal state)</li>
+                <li><code>cancelled</code> → cannot change (terminal state)</li>
+                <li><code>failed</code> → cannot change (terminal state)</li>
+            </ul>
+
+            <h4 style="margin-top: 20px; color: #374151;">Frontend Requirements</h4>
+            <ul>
+                <li>Show current status with color-coded badges</li>
+                <li>Add status update buttons (for testing/admin)</li>
+                <li>Filter orders by status (bonus)</li>
+                <li>Display status history (bonus)</li>
+            </ul>
+
+            <p><strong>Status Colors:</strong></p>
+            <ul>
+                <li><code>pending</code>: Yellow (#fef3c7 / #92400e)</li>
+                <li><code>processing</code>: Blue (#dbeafe / #1e40af)</li>
+                <li><code>successful</code>: Green (#d1fae5 / #065f46)</li>
+                <li><code>cancelled</code>: Gray (#f3f4f6 / #4b5563)</li>
+                <li><code>failed</code>: Red (#fee2e2 / #991b1b)</li>
+            </ul>
+        </div>
+
+        <!-- Challenge 06 Details -->
+        <div class="info-section" style="margin-top: 30px;">
+            <h3>Challenge 06: Search & Filtering - Detailed Requirements</h3>
+
+            <h4 style="margin-top: 20px; color: #374151;">Backend Requirements</h4>
+            <p><strong>Search Endpoint:</strong></p>
+            <ul>
+                <li>Modify <code>GET /api/products</code> to accept <code>search</code> query parameter</li>
+                <li>Search in: product name, description</li>
+                <li>Case-insensitive search</li>
+            </ul>
+
+            <p><strong>Filter Parameters:</strong></p>
+            <ul>
+                <li><code>min_price</code> and <code>max_price</code>: Filter by price range</li>
+                <li><code>sort_by</code>: Sort by <code>price</code>, <code>name</code>, <code>stock</code></li>
+                <li><code>order</code>: Sort order <code>asc</code> or <code>desc</code></li>
+            </ul>
+
+            <p><strong>Combined Filters:</strong></p>
+            <ul>
+                <li>Support multiple filters simultaneously</li>
+                <li>Works with pagination from Challenge 04</li>
+            </ul>
+
+            <p><strong>Example API Call:</strong></p>
+            <pre style="background: #f9fafb; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 0.875rem;">
+GET /api/products?search=wireless&min_price=20&max_price=150&sort_by=price&order=asc&page=1&limit=10</pre>
+
+            <h4 style="margin-top: 20px; color: #374151;">Frontend Requirements</h4>
+            <p><strong>Search Bar:</strong></p>
+            <ul>
+                <li>Real-time search (debounced 300ms)</li>
+                <li>Clear search button</li>
+                <li>Show "No results" message</li>
+            </ul>
+
+            <p><strong>Filter Panel:</strong></p>
+            <ul>
+                <li>Price range slider or inputs</li>
+                <li>Sort dropdown (Price Low-High, High-Low, Name A-Z, etc.)</li>
+                <li>Clear all filters button</li>
+            </ul>
+
+            <p><strong>Results:</strong></p>
+            <ul>
+                <li>Show active filters</li>
+                <li>Display result count</li>
+                <li>Update URL with filter parameters (bonus)</li>
+            </ul>
+        </div>
+
+        <!-- Challenge 07 Details -->
+        <div class="info-section" style="margin-top: 30px;">
+            <h3>Challenge 07: Shopping Cart Persistence - Detailed Requirements</h3>
+
+            <h4 style="margin-top: 20px; color: #374151;">Current Issue</h4>
+            <ul>
+                <li>Cart is tied to session_id (browser-based)</li>
+                <li>If user clears cookies, cart is lost</li>
+                <li>Multiple devices don't share cart</li>
+            </ul>
+
+            <h4 style="margin-top: 20px; color: #374151;">Backend Requirements</h4>
+            <p><strong>Improvements:</strong></p>
+            <ul>
+                <li>Store cart items in database (already done)</li>
+                <li>Add <code>created_at</code> and <code>updated_at</code> to cart</li>
+                <li>Auto-expire carts after 30 days of inactivity</li>
+                <li>Merge carts when user logs in (if using auth from Challenge 03)</li>
+            </ul>
+
+            <p><strong>Cleanup Job:</strong></p>
+            <ul>
+                <li>Add endpoint to clean expired carts: <code>DELETE /api/carts/cleanup</code></li>
+                <li>Remove carts older than 30 days with no activity</li>
+                <li>Can be scheduled with cron or called manually</li>
+            </ul>
+
+            <h4 style="margin-top: 20px; color: #374151;">Frontend Requirements</h4>
+            <ul>
+                <li>Load cart on app start</li>
+                <li>Sync cart when items change</li>
+                <li>Show last updated time</li>
+                <li>Show warning if cart is old (>7 days)</li>
+                <li>Allow user to refresh cart</li>
+            </ul>
+
+            <h4 style="margin-top: 20px; color: #374151;">Acceptance Criteria</h4>
+            <ul>
+                <li>Cart persists across browser sessions</li>
+                <li>Old carts are automatically cleaned up</li>
+                <li>Cart shows last updated time</li>
+                <li>Cart merges when user logs in (if using auth)</li>
+            </ul>
+        </div>
+
+        <!-- Submission & Evaluation -->
+        <div class="info-section" style="margin-top: 30px;">
+            <h3>Submission Guidelines</h3>
+            <p>For each challenge you complete:</p>
+            <ul>
+                <li>Document any assumptions in <code>README.md</code></li>
+                <li>Add tests if applicable</li>
+                <li>Ensure Docker setup still works</li>
+                <li>Update <code>CHALLENGES.md</code> with checkmarks for completed items</li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Evaluation Criteria</h3>
+            <p>Each challenge demonstrates different skills:</p>
+            <ul>
+                <li><strong>Challenge 01-02:</strong> CSS animations, UX attention to detail</li>
+                <li><strong>Challenge 02b:</strong> Component structure, data presentation</li>
+                <li><strong>Challenge 03:</strong> Authentication, security, database design</li>
+                <li><strong>Challenge 04:</strong> Pagination, performance optimization</li>
+                <li><strong>Challenge 05:</strong> State management, business logic validation</li>
+                <li><strong>Challenge 06:</strong> Complex filtering, debouncing, UX</li>
+                <li><strong>Challenge 07:</strong> Data persistence, lifecycle management</li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Need Help?</h3>
+            <p>
+                Check the <code>README.md</code> and <code>CHALLENGES.md</code> files for additional
+                information, testing guidelines, and implementation hints.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

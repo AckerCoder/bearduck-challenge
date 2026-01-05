@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup: Add to Cart Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f9fafb;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .instructions h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            color: #6b7280;
+        }
+
+        .instructions code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        /* 🎯 THE EXPECTED ANIMATION */
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Animation when clicked */
+        .add-to-cart-btn.adding {
+            background: #10b981;
+            transform: scale(0.95);
+        }
+
+        .add-to-cart-btn.adding::after {
+            content: '✓';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 1.5rem;
+            animation: checkmark 0.6s ease forwards;
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .add-to-cart-btn.adding .btn-text {
+            opacity: 0;
+        }
+
+        .btn-text {
+            transition: opacity 0.3s ease;
+        }
+
+        .note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 4px;
+            max-width: 600px;
+        }
+
+        .note strong {
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h1>Challenge 1: Add to Cart Animation</h1>
+        <p><strong>Objective:</strong> Add a smooth animation to the "Add to Cart" button when clicked.</p>
+
+        <p><strong>Requirements:</strong></p>
+        <ul>
+            <li>Button should scale down slightly (0.95x) when clicked</li>
+            <li>Background color should change from blue to green</li>
+            <li>Show a checkmark (✓) animation</li>
+            <li>The text "Add to Cart" should fade out during animation</li>
+            <li>Animation duration: ~600ms</li>
+            <li>After animation, button should return to normal state</li>
+        </ul>
+
+        <p><strong>Try it:</strong> Click the button below to see the expected behavior</p>
+    </div>
+
+    <div class="product-card">
+        <img src="https://i.imgur.com/ZANVnHE.jpg" alt="Wireless Headphones">
+        <div class="product-info">
+            <h3>Wireless Headphones</h3>
+            <p>High-quality wireless headphones with noise cancellation</p>
+            <div class="price">$99.99</div>
+            <button class="add-to-cart-btn" onclick="addToCart(this)">
+                <span class="btn-text">Add to Cart</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>Implementation Hint:</strong> Use CSS transitions and a temporary class like <code>.adding</code> that you toggle on click. Remove the class after 600ms to reset the animation.
+    </div>
+
+    <script>
+        function addToCart(button) {
+            // Add the animation class
+            button.classList.add('adding');
+
+            // Remove the class after animation completes
+            setTimeout(() => {
+                button.classList.remove('adding');
+            }, 600);
+        }
+    </script>
+</body>
+</html>
